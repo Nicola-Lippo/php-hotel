@@ -47,27 +47,32 @@ $hotels = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>PHP Hotel</title>
 </head>
 
 <body>
-    <?php foreach ($hotels as $key => $hotelsList) : ?>
-        <h2><?php echo $key; ?></h2>
-        <ul>
-            <?php foreach ($hotelsList as $key => $hotel) : ?>
-                <li>
-                    <?php echo $key ?> =
-                    <?php
-                    if ($key == 'parking') {
-                        echo ($hotel == true) ? 'Si' : 'No';
-                    } else {
-                        echo $hotel;
-                    } ?>
-                </li>
+    <h1 class="text-center">Tabella Hotels PHP</h1>
+    <table class="table table-bordered">
+        <?php foreach ($hotels as $key => $hotelsList) : ?>
+            <tbody>
+                <tr>
+                    <?php foreach ($hotelsList as $key => $hotel) : ?>
+                        <td>
+                            <?php echo $key ?> =
+                            <?php
+                            if ($key == 'parking') {
+                                echo ($hotel == true) ? 'Si' : 'No';
+                            } else {
+                                echo $hotel;
+                            } ?>
+                        </td>
+                    <?php endforeach; ?>
+                </tr>
+            </tbody>
+        <?php endforeach; ?>
+    </table>
 
-            <?php endforeach; ?>
-        </ul>
-    <?php endforeach; ?>
 </body>
 
 </html>
